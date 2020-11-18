@@ -17,7 +17,9 @@ while True:
         symbol_min = N
     elif N < symbol_min:
         symbol_min = N
-    if N > symbol_max:
+    if symbol_max == 0:
+        symbol_max = N
+    elif N > symbol_max:
         symbol_max = N
     if N % 2 == 0:
         symbol_even_count += 1
