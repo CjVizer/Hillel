@@ -26,4 +26,8 @@ def arithmetic(a, b, op):
         return 'Неизвестная операция'
 
 
-print(arithmetic(15, 5, '8'))
+num_1 = int(input('Введите первое число: '))
+op = input('Введите арифметическую операцию: ')
+num_2 = int(input('Введите второе число: '))
+
+print(arithmetic(num_1, num_2, op))
