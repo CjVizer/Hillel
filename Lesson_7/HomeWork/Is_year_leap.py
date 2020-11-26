@@ -24,5 +24,6 @@ def is_year_leap(year):
         return False
 
 
-print(is_year_leap(2000))
-print(is_year_leap(1989))
+in_year = int(input('Введите год: '))
+
+print(is_year_leap(in_year))
