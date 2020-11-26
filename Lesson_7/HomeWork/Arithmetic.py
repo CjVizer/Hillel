@@ -11,3 +11,19 @@
  В остальных случаях вернуть строку "Неизвестная операция".
 
 """
+
+
+def arithmetic(a, b, op):
+    if op == '+':
+        return a + b
+    elif op == '-':
+        return a - b
+    elif op == '*':
+        return a * b
+    elif op == '/':
+        return a / b
+    else:
+        return 'Неизвестная операция'
+
+
+print(arithmetic(15, 5, '8'))
