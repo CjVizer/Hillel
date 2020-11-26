@@ -6,4 +6,17 @@
 
 Задачу необходимо решить с использованием словаря.
 
+Слон привет Слон один один привет Слон кот собака кот Слон привет
+
 """
+
+words = input('Введите текст: ').split(' ')
+
+res = {}
+
+for word in words:
+    res[word] = res.get(word, 0) + 1
+
+for word, value in res.items():
+    print(word, value)
+
