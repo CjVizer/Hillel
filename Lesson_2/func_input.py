@@ -1,3 +1,5 @@
+# input()
+
 a = input('Please enter a number (1-100): ')
 print(a)
 print(type(a))
