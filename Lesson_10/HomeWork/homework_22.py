@@ -11,15 +11,12 @@
 """
 
 
-def shift(num, razr, direction=False):
-    print(num, razr, direction)
-    return 1
-
-
-# tmp = 123456789
-# print(tmp, type(tmp))
-# tmp = list(str(tmp))
-#
-# print(tmp, type(tmp))
-
-shift(1, 10, True)
+def number_shift(num, shift, direction=False):
+    num = [i for i in str(num)]
+    if direction:
+        for _ in range(shift):
+            num.insert(0, num.pop())
+    else:
+        for _ in range(shift):
+            num.append(num.pop(0))
+    return int(''.join(list(num)))

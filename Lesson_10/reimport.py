@@ -1,13 +1,20 @@
 import importlib
 from time import sleep
 
-from Lesson_10.modules_m import mod3
-
-sleep(3)
+import mod3
+sleep(1)
 importlib.reload(mod3)
-sleep(3)
+sleep(1)
 importlib.reload(mod3)
-sleep(3)
+sleep(1)
 importlib.reload(mod3)
-sleep(3)
+sleep(1)
+importlib.reload(mod3)
+sleep(1)
+importlib.reload(mod3)
+sleep(1)
+importlib.reload(mod3)
+sleep(1)
+importlib.reload(mod3)
+sleep(1)
 importlib.reload(mod3)
