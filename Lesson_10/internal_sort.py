@@ -55,45 +55,43 @@ def get_surname(full_name):
 # преобразуем многострочный текст в список
 names = [name.strip() for name in text.strip('\n').split('\n')]
 # pprint(names)
-print()
-
+# print()
 
 # сортируем по фамилии
 names.sort(key=get_surname)
 # pprint(names)
-print()
 
 
 # а теперь сортируем по имени
 names.sort(key=lambda full_name: full_name.split()[0])
-pprint(names)
+# pprint(names)
 print()
 
 
 # добавляем каждому ученику по 10 оценок
 rating = [name + ', ' + ', '.join([str(randint(1, 10)) for _ in range(12)]) for name in names]
 # pprint(rating)
-mprint(rating, 1)
+# mprint(rating, 1)
 print()
 
 
 # вычисляем и добавляем каждому ученику сумму оценок
 rating = [line + ', ' + str(sum(int(x) for x in line.split(', ')[1:])) for line in rating]
 # pprint(rating)
-mprint(rating, 2)
+# mprint(rating, 2)
 print()
 
 
 # вычисляем и добавляем каждому ученику средний балл
 rating = [line + ', ' + str(round(int(line.split(', ')[-1]) / len(line.split(', ')[1:-1]), 2)) for line in rating]
 # pprint(rating)
-mprint(rating, 3)
+# mprint(rating, 3)
 print()
 
 
 # сортируем по сумме оценок
 rating.sort(key=lambda element: sum(int(value) for value in element.split(', ')[1:-2]))
-mprint(rating, 3)
+# mprint(rating, 3)
 print()
 
 
@@ -108,7 +106,6 @@ print()
 n = sorted(names, key=lambda full_name: full_name.split()[0])
 pprint(n)
 print()
-
 
 # сортируем по длине имени
 n = sorted(names, key=lambda full_name: len(full_name.split()[0]))
