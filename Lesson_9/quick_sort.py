@@ -24,6 +24,8 @@ def quick_sort(array, first_idx, last_idx):
 
 lst = [random.randint(10, 99) for _ in range(30)]
 print(lst)
+quick_sort(lst, 0, len(lst)-1)
+print(lst)
 
 quick_sort(lst, 0, len(lst)-1)
 print(lst)
