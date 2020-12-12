@@ -18,10 +18,9 @@
 
 """
 
-x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
 
 def conv_notation(f_num, f_notation):
+    x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     tmp = []
     while f_num:
         tmp.insert(0, x[f_num % f_notation])

@@ -19,4 +19,4 @@ def number_shift(num, shift, direction=False):
     else:
         for _ in range(shift):
             num.append(num.pop(0))
-    return int(''.join(list(num)))
+    return int(''.join(num))
