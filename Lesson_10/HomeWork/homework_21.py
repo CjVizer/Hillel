@@ -17,10 +17,11 @@
 Алгоритм преобразования десятичного числа в другую систему счисления можно найти в интернете. Например вот здесь.
 
 """
+from string import ascii_uppercase, digits
 
 
 def conv_notation(f_num, f_notation):
-    x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    x = digits + ascii_uppercase
     tmp = []
     while f_num:
         tmp.insert(0, x[f_num % f_notation])
