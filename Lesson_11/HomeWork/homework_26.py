@@ -17,3 +17,20 @@ d = {
 
 }
 """
+
+d = {
+
+   'apple': ['malum', 'pomum', 'popula'],
+
+   'fruit': ['baca', 'bacca', 'popum'],
+
+   'punishment': ['malum', 'multa']
+
+}
+
+k = list(d.keys())
+v = list(d.values())
+
+d_my = {i: k[j] for j in range(len(d)) for i in v[j]}
+
+print(d_my)

@@ -13,7 +13,7 @@
 from random import randint
 
 lst = [randint(10, 50) for _ in range(20)]
-k = 1
+k = 30
 
 while k < len(lst) - 1:
     lst[k], lst[k + 1] = lst[k + 1], lst[k]
