@@ -20,17 +20,18 @@ d = {
 
 d = {
 
-   'apple': ['malum', 'pomum', 'popula'],
+    'apple': ['malum', 'pomum', 'popula'],
 
-   'fruit': ['baca', 'bacca', 'popum'],
+    'fruit': ['baca', 'bacca', 'popum'],
 
-   'punishment': ['malum', 'multa']
+    'punishment': ['malum', 'multa']
 
 }
 
 k = list(d.keys())
 v = list(d.values())
+d_my = dict()
 
-d_my = {i: k[j] for j in range(len(d)) for i in v[j]}
-
-print(d_my)
+for i in range(len(k)):
+    for j in range(len(v[i])):
+        d_my.update({v[i][j]: d_my.get(v[i][j], []) + [k[i]]})
