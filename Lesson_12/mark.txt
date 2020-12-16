@@ -1,0 +1,11 @@
+"""
+    r       read        (default)
+    w       write
+    x       exclusive
+    a       append
+
+    t       text        (default)
+    b       binary
+
+    +       mix
+"""
