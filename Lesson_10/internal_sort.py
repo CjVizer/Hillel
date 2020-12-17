@@ -25,7 +25,7 @@ def mprint(lst, variant):
 
     for line in lst:
         lst = line.split(', ')
-
+        print(lst)
         if variant == 1:
             print(template_1.format(
                 full_name=lst[0],
@@ -70,10 +70,10 @@ print()
 
 # добавляем каждому ученику по 10 оценок
 rating = [name + ', ' + ', '.join([str(randint(1, 10)) for _ in range(12)]) for name in names]
-# pprint(rating)
-# mprint(rating, 1)
+print(rating)
+mprint(rating, 1)
 print()
-
+exit(0)
 
 # вычисляем и добавляем каждому ученику сумму оценок
 rating = [line + ', ' + str(sum(int(x) for x in line.split(', ')[1:])) for line in rating]
