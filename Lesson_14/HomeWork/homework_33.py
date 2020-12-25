@@ -10,38 +10,55 @@
 
 
 class Student:
-    def __init__(self, name=None, age=None, course=None, grades=None):
-        self.name = name
-        self.age = age
-        self.course = course
-        self.grades = [] + grades
+    def __init__(self, name, age=None, mail=None, phone=None):
+        self.__name = name
+        self.__age = age
+        self.__mail = mail
+        self.__phone = phone
+        self.__grades = []
 
     def get_student(self):
-        return [self.name, self.age, self.course, self.grades]
+        return [self.__name, self.__age, self.__mail, self.__phone, self.__grades]
 
-    def set_name(self, name):
-        self.name = name
+    @property
+    def name(self):
+        return self.__name
 
-    def get_name(self):
-        return self.name
+    @name.setter
+    def name(self, name):
+        self.__name = name
 
-    def set_age(self, age):
-        self.age = age
+    @property
+    def age(self):
+        return self.__age
 
-    def get_age(self):
-        return self.age
+    @age.setter
+    def age(self, age):
+        self.__age = age
 
-    def set_course(self, course):
-        self.course = course
+    @property
+    def mail(self):
+        return self.__mail
 
-    def get_course(self):
-        return self.course
+    @mail.setter
+    def mail(self, mail):
+        self.__mail = mail
 
-    def add_grade(self, grade):
-        self.grades.append(grade)
+    @property
+    def phone(self):
+        return self.__phone
 
-    def get_grades(self):
-        return self.grades
+    @phone.setter
+    def phone(self, phone):
+        self.__phone = phone
+
+    @property
+    def grades(self):
+        return self.__grades
+
+    @grades.setter
+    def grades(self, grade):
+        self.__grades.append(grade)
 
     def clear_grades(self):
         self.grades.clear()
@@ -50,53 +67,96 @@ class Student:
 class Group:
     def __init__(self):
         self.students = []
+        self.debug = False
+        self.__warn_empty_group = 'В этой группе пока нет студентов :('
+        self.__warn_no_such_student = 'Студента с индексом {} в этой группе нет :('
 
     def get_group(self):
-        return [student.get_student() for student in self.students] if len(self.students) else None
-
-    def add_student(self, name=None, age=None, course=None, grades=None):
-        self.students.append(Student(name, age, course, grades))
+        if len(self.students):
+            return [student.get_student() for student in self.students]
+        elif self.debug:
+            print('get_group() ' + self.__warn_empty_group)
 
     def get_student(self, idx):
-        return self.students[idx].get_student() if idx < len(self.students) else None
+        if idx < len(self.students):
+            return self.students[idx].get_student()
+        elif self.debug:
+            print('get_student() ' + self.__warn_no_such_student.format(idx))
+
+    def add_student(self, name, age=None, mail=None, phone=None, grades=None):
+        self.students.append(Student(name, age, mail, phone))
+        if grades and isinstance(grades, list):
+            for i in range(len(grades)):
+                self.students[len(self.students) - 1].grades = grades[i]
+        elif grades:
+            self.students[len(self.students) - 1].grades = grades
 
     def get_name(self, idx):
-        return self.students[idx].get_name() if idx < len(self.students) else None
+        if idx < len(self.students):
+            return self.students[idx].name
+        elif self.debug:
+            print('get_name() ' + self.__warn_no_such_student.format(idx))
 
     def set_name(self, idx, name):
-        self.students[idx].set_name(name) if idx < len(self.students) else None
+        if idx < len(self.students):
+            self.students[idx].name = name
+        elif self.debug:
+            print('set_name() ' + self.__warn_no_such_student.format(idx))
 
     def get_age(self, idx):
-        return self.students[idx].get_age() if idx < len(self.students) else None
+        if idx < len(self.students):
+            return self.students[idx].age
+        elif self.debug:
+            print('get_age() ' + self.__warn_no_such_student.format(idx))
 
     def set_age(self, idx, age):
-        self.students[idx].set_age(age) if idx < len(self.students) else None
+        if idx < len(self.students):
+            self.students[idx].age = age
+        elif self.debug:
+            print('set_age() ' + self.__warn_no_such_student.format(idx))
 
-    def get_course(self, idx):
-        return self.students[idx].get_course() if idx < len(self.students) else None
+    def get_mail(self, idx):
+        if idx < len(self.students):
+            return self.students[idx].mail
+        elif self.debug:
+            print('get_mail() ' + self.__warn_no_such_student.format(idx))
 
-    def set_course(self, idx, course):
-        self.students[idx].set_course(course) if idx < len(self.students) else None
+    def set_mail(self, idx, mail):
+        if idx < len(self.students):
+            self.students[idx].mail = mail
+        elif self.debug:
+            print('set_mail() ' + self.__warn_no_such_student.format(idx))
+
+    def get_phone(self, idx):
+        if idx < len(self.students):
+            return self.students[idx].phone
+        elif self.debug:
+            print('get_phone() ' + self.__warn_no_such_student.format(idx))
+
+    def set_phone(self, idx, phone):
+        if idx < len(self.students):
+            self.students[idx].phone = phone
+        elif self.debug:
+            print('set_phone() ' + self.__warn_no_such_student.format(idx))
 
     def get_grades(self, idx):
-        return self.students[idx].get_grades() if idx < len(self.students) else None
+        if idx < len(self.students):
+            return self.students[idx].grades
+        elif self.debug:
+            print('get_grades() ' + self.__warn_no_such_student.format(idx))
 
-    def add_grade(self, idx, grade):
-        self.students[idx].set_grades(grade) if idx < len(self.students) else None
+    def add_grades(self, idx, grades):
+        if idx < len(self.students):
+            if grades and isinstance(grades, list):
+                for i in range(len(grades)):
+                    self.students[idx].grades = grades[i]
+            elif grades:
+                self.students[idx].grades = grades
+        elif self.debug:
+            print('add_grades() ' + self.__warn_no_such_student.format(idx))
 
     def delete_student(self, idx):
         if idx < len(self.students):
             self.students.pop(idx)
-
-
-g = Group()
-# g.add_student('Vika', 20, 2, [1, 2, 3, 4, 5])
-# g.add_student('Misha', 32, 4, [1, 2, 3, 4, 5])
-# g.add_student('Egor', 27, 1, [10, 2, 7, 4, 9])
-print(g.get_group())
-g.set_name(1, 'Olya')
-print(g.get_group())
-g.set_age(2, 152)
-print(g.get_group())
-g.set_course(0, 999)
-print(g.get_group())
+        elif self.debug:
+            print('delete_student() ' + self.__warn_no_such_student.format(idx))
