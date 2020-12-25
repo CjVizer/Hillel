@@ -8,12 +8,12 @@
 
 class Counter:
     def __init__(self, min_value=0, max_value=100):
-        self.min_value = min_value
-        self.max_value = max_value
-        self.value = min_value
+        self.__min_value = min_value
+        self.__max_value = max_value
+        self.__value = min_value
 
     def counter_update(self):
-        self.value = (self.value + 1) if self.value < self.max_value else self.min_value
+        self.__value = (self.__value + 1) if self.__value < self.__max_value else self.__min_value
 
     def get_value(self):
-        return self.value
+        return self.__value
