@@ -17,21 +17,3 @@ class Counter:
 
     def get_value(self):
         return self.value
-
-
-c = Counter(1,2)
-print(c.min_value, c.max_value, c.value)
-c.counter_update()
-print(c.min_value, c.max_value, c.value)
-print(c.get_value())
-c.counter_update()
-print(c.get_value())
-c.counter_update()
-print(c.get_value())
-c.counter_update()
-print(c.get_value())
-c.counter_update()
-print(c.get_value())
-c.counter_update()
-print(c.get_value())
-
