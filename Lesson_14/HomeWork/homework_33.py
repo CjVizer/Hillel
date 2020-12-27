@@ -160,3 +160,9 @@ class Group:
             self.students.pop(idx)
         elif self.debug:
             print('delete_student() ' + self.__warn_no_such_student.format(idx))
+
+
+g = Group()
+g.add_student('one', 31, 'oooooooo', '+222333666')
+g.add_grades(0, 10)
+print(g.get_student(0))
